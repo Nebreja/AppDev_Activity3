@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="/style.css">
+
+    <title>Document</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="sidebar">
+        <div class="user-profile">
+            <a href="">
+                <img src="user-avatar.jpg" alt="" class="avatar">
+            </a>
+        </div>
+        <ul class="menu">
+            <li >
+                <a href="#" onclick="showDashboard()">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="showProfile()">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="showOrderHistory()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Order History</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="login.php">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="dashboardcontainer" class="container">
+        <div class="card-container">
+            <div class="card">
+                <img src="/images/water8.jpg" class="card-img-top" alt="Bottle Water">
+                <div class="card-body">
+                    <div class="clearfix mb-3">
+                        <span id="price1" class="float-start badge rounded-pill bg-success">15.00 php</span>
+                    </div>
+                    <h5 class="card-title">7 L Bottle Water Container</h5>
+                    <div class="d-grid gap-2 my-4">
+                        <a href="#" class="btn btn-custom">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/images/water7.jpg" class="card-img-top" alt="Bottle Water">
+                <div class="card-body">
+                    <div class="clearfix mb-3">
+                        <span id="price2" class="float-start badge rounded-pill bg-success">20.00 php</span>
+                    </div>
+                    <h5 class="card-title">2.5 Gal Bucket Container</h5>
+                    <div class="d-grid gap-2 my-4">
+                        <a href="#" class="btn btn-custom">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/images/water9.jpg" class="card-img-top" alt="Bottle Water">
+                <div class="card-body">
+                    <div class="clearfix mb-3">
+                        <span id="price3" class="float-start badge rounded-pill bg-success">30.00 php</span>
+                    </div>
+                    <h5 class="card-title">5 Gal Round Dispenser</h5>
+                    <div class="d-grid gap-2 my-4">
+                        <a href="#" class="btn btn-custom">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/images/water2.jpg" class="card-img-top" alt="Bottle Water">
+                <div class="card-body">
+                    <div class="clearfix mb-3">
+                        <span id="price4" class="float-start badge rounded-pill bg-success">20.00 php</span>
+                    </div>
+                    <h5 class="card-title">2.5 Gal Small Slim Container</h5>
+                    <div class="d-grid gap-2 my-4">
+                        <a href="#" class="btn btn-custom">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/images/water3.jpg" class="card-img-top" alt="Bottle Water">
+                <div class="card-body">
+                    <div class="clearfix mb-3">
+                        <span id="price5" class="float-start badge rounded-pill bg-success">30.00 php</span>
+                    </div>
+                    <h5 class="card-title">5 Gal Slim Container</h5>
+                    <div class="d-grid gap-2 my-4">
+                        <a href="#" class="btn btn-custom">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/images/water4.jpg" class="card-img-top" alt="Bottle Water">
+                <div class="card-body">
+                    <div class="clearfix mb-3">
+                        <span id="price6" class="float-start badge rounded-pill bg-success">40.00 php</span>
+                    </div>
+                    <h5 class="card-title">6 Gal Carboy Container</h5>
+                    <div class="d-grid gap-2 my-4">
+                        <a href="#" class="btn btn-custom">Buy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ordercontainer" class="order-container">
+        <form id="order-form" action="" method="post">
+            <h1>Order Transaction</h1>
+            <h2>Product Name</h2>
+            <input type="text" id="product-name" name="product-name" required readonly>
+            <h2>Quantity</h2>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+            <h2>Address of Delivery</h2>
+            <input type="text" id="address" name="address" required>
+            <h2>Contact Number</h2>
+            <input type="number" id="number" name="number" required>
+            <h2>Date of Delivery</h2>
+            <input type="date" id="date" name="date" required>
+            <h2>Time of Delivery</h2>
+            <input type="time" id="time" name="time" required>
+            <h2>Total Cost</h2>
+            <input type="number" id="total-cost" name="total-cost" required readonly>
+            <button type="button" id="submit-button">Review Order</button>
+        </form>
+        <div class="popover" id="date-popover">Sorry! The station is not available on Sundays.</div>
+        <div class="popover" id="time-popover">Sorry! The station is only open from 8 AM to 4 PM.</div>
+        <div class="popover" id="contact-popover">Please enter a valid 11-digit contact number.</div>
+    </div>
+
+    <div id="orderDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Order List</h1>
+            <h2>Product Name: <span id="modal-product-name"></span></h2>
+            <h2>Quantity: <span id="modal-quantity"></span></h2>
+            <h2>Address of Delivery: <span id="modal-address"></span></h2>
+            <h2>Contact Number: <span id="modal-number"></span></h2>
+            <h2>Date of Delivery: <span id="modal-date"></span></h2>
+            <h2>Time of Delivery: <span id="modal-time"></span></h2>
+            <h2>Total Cost: <span id="modal-total-cost"></span></h2>
+            <button id="proceed-button">Proceed</button>
+        </div>
+    </div>
+
+
+    <!-- Thank You Modal -->
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Thank You!</h1>
+            <p>Thank you for trusting Calapan Water Station.</p>
+            <p>Your order is recorded. Please prepare an exact amount of payment and wait for your date and time of delivery.</p>
+        </div>
+    </div>
+
+    <script>
+
+        $(document).ready(function() {
+            var table = $('#orderhistorytable').DataTable({
+                "paging": true,
+                "pageLength": 5, // Limit the pagination to 5 entries per page
+                "searching": true
+            });
+
+            // Custom search functionality
+            $('#searchButton').click(function() {
+                table.search($('#searchInput').val()).draw();
+            });
+
+            $('#searchInput').on('keypress', function(e) {
+                if (e.which == 13) { // Enter key pressed
+                    table.search(this.value).draw();
+                }
+            });
+        });
+
+        // Show Dashboard and Order container by default
+        document.getElementById('dashboardcontainer').classList.remove('hidden');
+        document.getElementById('ordercontainer').classList.remove('hidden');
+
+        function showDashboard() {
+            document.getElementById('dashboardcontainer').classList.remove('hidden');
+            document.getElementById('profilecontainer').classList.add('hidden');
+            document.getElementById('ordercontainer').classList.remove('hidden');
+            document.getElementById('orderhistorycontainer').classList.add('hidden');
+        }
+
+        function showProfile() {
+            document.getElementById('dashboardcontainer').classList.add('hidden');
+            document.getElementById('profilecontainer').classList.remove('hidden');
+            document.getElementById('ordercontainer').classList.add('hidden');
+            document.getElementById('orderhistorycontainer').classList.add('hidden');
+        }
+
+        function showOrderHistory() {
+            document.getElementById('dashboardcontainer').classList.add('hidden');
+            document.getElementById('profilecontainer').classList.add('hidden');
+            document.getElementById('ordercontainer').classList.add('hidden');
+            document.getElementById('orderhistorycontainer').classList.remove('hidden');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const buyButtons = document.querySelectorAll('.btn-custom');
+            const productNameInput = document.getElementById('product-name');
+            const totalCostInput = document.getElementById('total-cost');
+            const quantityInput = document.getElementById('quantity');
+            const orderForm = document.getElementById("order-form");
+            const orderDetailsModal = document.getElementById("orderDetailsModal");
+            const thankYouModal = document.getElementById("thankYouModal");
+            const modalCloseButtons = document.querySelectorAll(".close");
+            const dateInput = document.getElementById('date');
+            const datePopover = document.getElementById('date-popover');
+            const timeInput = document.getElementById('time');
+            const timePopover = document.getElementById('time-popover');
+            const contactInput = document.getElementById('number');
+            const contactPopover = document.getElementById('contact-popover');
+            const proceedButton = document.getElementById('submit-button');
+            const modalProceedButton = document.getElementById('proceed-button'); // New proceed button in modal
+
+            const prices = {
+                "7 L Bottle Water Container": 15.00,
+                "2.5 Gal Bucket Container": 20.00,
+                "5 Gal Round Dispenser": 30.00,
+                "2.5 Gal Small Slim Container": 20.00,
+                "5 Gal Slim Container": 30.00,
+                "6 Gal Carboy Container": 40.00
+            };
+
+            buyButtons.forEach(function (button) {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    const card = button.closest('.card');
+                    const productName = card.querySelector('.card-title').textContent.trim();
+                    productNameInput.value = productName;
+
+                    const price = prices[productName];
+                    updateTotalCost(price);
+                });
+            });
+
+            quantityInput.addEventListener('input', function () {
+                const productName = productNameInput.value;
+                const price = prices[productName] || 0;
+                updateTotalCost(price);
+            });
+
+            dateInput.addEventListener('input', function () {
+                const selectedDate = new Date(dateInput.value);
+                if (selectedDate.getDay() === 0) { // 0 represents Sunday
+                    const rect = dateInput.getBoundingClientRect();
+                    datePopover.style.top = `${rect.bottom + window.scrollY}px`;
+                    datePopover.style.left = `${rect.left + window.scrollX}px`;
+                    datePopover.style.display = 'block';
+                    proceedButton.disabled = true;
+                } else {
+                    datePopover.style.display = 'none';
+                    proceedButton.disabled = false;
+                }
+            });
+
+            timeInput.addEventListener('input', function () {
+                const selectedTime = timeInput.value;
+                const hour = parseInt(selectedTime.split(':')[0]);
+                if (hour < 8 || hour >= 16) {
+                    const rect = timeInput.getBoundingClientRect();
+                    timePopover.style.top = `${rect.bottom + window.scrollY}px`;
+                    timePopover.style.left = `${rect.left + window.scrollX}px`;
+                    timePopover.style.display = 'block';
+                    proceedButton.disabled = true;
+                } else {
+                    timePopover.style.display = 'none';
+                    proceedButton.disabled = false;
+                }
+            });
+
+            contactInput.addEventListener('input', function () {
+                const contactNumber = contactInput.value.trim();
+                if (contactNumber.length !== 11 || !(/^\d+$/.test(contactNumber))) {
+                    const rect = contactInput.getBoundingClientRect();
+                    contactPopover.style.top = `${rect.bottom + window.scrollY}px`;
+                    contactPopover.style.left = `${rect.left + window.scrollX}px`;
+                    contactPopover.style.display = 'block';
+                    proceedButton.disabled = true;
+                } else {
+                    contactPopover.style.display = 'none';
+                    proceedButton.disabled = false;
+                }
+            });
+
+            proceedButton.addEventListener('click', function () {
+                // Fill modal with order details
+                document.getElementById('modal-product-name').textContent = productNameInput.value;
+                document.getElementById('modal-quantity').textContent = quantityInput.value;
+                document.getElementById('modal-address').textContent = document.getElementById('address').value;
+                document.getElementById('modal-number').textContent = contactInput.value;
+                document.getElementById('modal-date').textContent = dateInput.value;
+                document.getElementById('modal-time').textContent = timeInput.value;
+                document.getElementById('modal-total-cost').textContent = totalCostInput.value;
+
+                // Display the modal
+                orderDetailsModal.style.display = 'block';
+            });
+
+            modalProceedButton.addEventListener('click', function () {
+                orderForm.submit(); // Submit the form to the server
+            });
+
+            modalCloseButtons.forEach(function (closeButton) {
+                closeButton.addEventListener('click', function () {
+                    orderDetailsModal.style.display = 'none';
+                    thankYouModal.style.display = 'none';
+                });
+            });
+
+            window.addEventListener('click', function (event) {
+                if (event.target == orderDetailsModal) {
+                    orderDetailsModal.style.display = 'none';
+                } else if (event.target == thankYouModal) {
+                    thankYouModal.style.display = 'none';
+                }
+            });
+
+            function updateTotalCost(price) {
+                const quantity = parseInt(quantityInput.value) || 0;
+                const totalCost = price * quantity;
+                totalCostInput.value = totalCost.toFixed(2);
+            }
+        });
+    </script>
+
+</body>
+</html>

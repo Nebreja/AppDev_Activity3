@@ -1,0 +1,295 @@
+/* Rest of your CSS code */
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    display: flex;
+}
+.sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 110px;
+    height: 100vh;
+    padding: 0 1.7rem;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.5s linear;
+    background: #5477ff;
+}
+.sidebar:hover {
+    width: 298px;
+    transition: 0.5s;
+}
+.logo {
+    height: 80px;
+    padding: 16px;
+}
+.menu {
+    height: 88%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+.menu li {
+    padding: 1rem;
+    margin: 8px 0;
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+}
+.menu li:hover,
+.active {
+    background: #e0e0e058;
+}
+.menu a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.menu a span {
+    overflow: hidden;
+}
+.menu a i {
+    font-size: 1.2rem;
+}
+.logout {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.container {
+    width: auto; /* Adjusted width with margins */
+    max-width: 1200px; /* Maximum width to maintain responsiveness */
+    height: auto; /* Let the height adjust based on content */
+    margin: 50px; /* Margin adjustment */
+    padding: 40px; /* Padding adjustment */
+    background: rgb(84, 119, 255);
+    background: linear-gradient(
+        159deg,
+        rgba(84, 119, 255, 1) 0%,
+        rgba(176, 191, 255, 1) 100%
+    );
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    display: grid; /* Change display to grid */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(3, auto); /* Adjust number of rows as needed */
+    gap: 20px; /* Gap between grid items */
+    justify-items: center; /* Center items horizontally */
+    align-items: start; /* Align items to the start of the container */
+}
+.card-container {
+    display: contents; /* Make the card container use grid layout */
+}
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: 100%; /* Ensure cards take full width of the container */
+    max-width: 400px; /* Maximum width for larger screens */
+    margin: 10px; /* Add margin between cards */
+}
+.card:hover {
+    transform: translateY(-10px);
+}
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.card-body {
+    padding: 20px;
+}
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+.card-text {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 1.5rem;
+}
+.card-price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+.card-button {
+    display: flex;
+    justify-content: center;
+}
+.order-container {
+    width: auto; /* Adjusted width */
+    max-width: 600px; /* Maximum width */
+    margin: 50px auto; /* Centered margin */
+    padding: 40px; /* Padding */
+    background: rgb(84, 119, 255);
+    background: linear-gradient(
+        159deg,
+        rgba(84, 119, 255, 1) 0%,
+        rgba(176, 191, 255, 1) 100%
+    );
+    border-radius: 10px; /* Border radius */
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); /* Box shadow */
+    margin-right: 50px;
+    margin-bottom: 500px;
+}
+.order-container h1,
+.order-container h2 {
+    color: #333; /* Text color */
+    margin-bottom: 20px; /* Bottom margin */
+}
+.order-container h2{
+    font-size: 15px;
+}
+.order-container input {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding */
+    margin-bottom: 20px; /* Bottom margin */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 5px; /* Border radius */
+    outline: none;
+}
+.order-container button {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding */
+    background-color: #5477ff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Border radius */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+.order-container button:hover {
+    background-color: #4767d5; /* Hover background color */
+}
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content {
+    background: rgb(84, 119, 255);
+    background: linear-gradient(
+        159deg,
+        rgba(84, 119, 255, 1) 0%,
+        rgba(176, 191, 255, 1) 100%
+    );
+    background-color: #fff;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 40px; /* Increased padding for more space */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2); /* Box shadow */
+    width: 80%; /* Increased width */
+    max-width: 900px; /* Maximum width */
+    text-align: center; /* Center text */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    position: relative; /* To position the close button */
+    color: #fff;
+}
+.modal-content p{
+    font-size: 15px;
+}
+/* Close button */
+.close {
+    color: #fff;
+    position: absolute; /* Absolute positioning */
+    top: 20px; /* 20px from the top */
+    right: 20px; /* 20px from the right */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Button styling */
+button {
+    background-color: #5477ff; /* Blue */
+    color: white;
+    padding: 15px 20px;
+    margin: 15px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #4767d5;
+}
+
+h1, h2 {
+    font-family: Arial, sans-serif;
+    margin: 10px 0; /* Margin for spacing */
+}
+
+h2 span {
+    font-weight: normal; /* Normal weight for span */
+}
+.btn-custom {
+    background-color: #5477ff; /* Button background color */
+    color: #fff; /* Button text color */
+    font-size: 14px; /* Font size */
+    padding: 10px 20px; /* Padding for the button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    text-transform: uppercase; /* Uppercase text */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    display: block; /* Make the button block-level element */
+    width: 100%; /* Full width */
+    text-decoration: none;
+}
+
+/* Hover effect for the button */
+.btn-custom:hover {
+    background-color: #4767d5; /* Change background color on hover */
+}
+
+.popover {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ffdddd;
+    color: #d9534f;
+    border: 1px solid #d9534f;
+    display: none;
+    z-index: 100;
+}
